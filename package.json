@@ -1,0 +1,82 @@
+{
+  "name": "react-reader",
+  "version": "0.19.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "compile": "NODE_ENV=production babel --out-dir lib src/modules",
+    "prepare": "npm run compile",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "deploy": "gh-pages-deploy",
+    "clean-source": "rimraf lib src public .babelrc .eslintrc .npmignore package.json README.md",
+    "precommit": "pretty-quick --staged",
+    "format": "prettier --write \"src/**/*.js\"",
+    "test": "eslint -c .eslintrc src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gerhardsletten/react-reader.git"
+  },
+  "author": "Eyvind Gerhard Sletten",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gerhardsletten/react-reader/issues"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "homepage": "https://gerhardsletten.github.io/react-reader",
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "@types/react": "^16.9.51",
+    "csstype": "^3.0.3",
+    "gh-pages-deploy": "^0.5.1",
+    "husky": "^4.3.0",
+    "prettier": "^2.1.2",
+    "pretty-quick": "^3.0.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-file-reader-input": "^2.0.0",
+    "react-scripts": "^3.4.3",
+    "rimraf": "^3.0.2",
+    "styled-components": "^5.2.0",
+    "styled-components-breakpoint": "^2.1.1",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "epubjs": "^0.3.88",
+    "prop-types": "^15.7.2",
+    "react-dom": "17.0.1",
+    "react-file-reader-input": "2.0.0",
+    "react-swipeable": "^5.5.1",
+    "styled-components": "5.2.1",
+    "styled-components-breakpoint": "3.0.0-preview.20"
+  },
+  "peerDependencies": {
+    "react": ">=16.13.1"
+  },
+  "gh-pages-deploy": {
+    "staticpath": "build",
+    "prep": [
+      "build"
+    ],
+    "post": [
+      "clean-source"
+    ],
+    "noprompt": false
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "types": "types/index.d.ts",
+  "keywords": []
+}
